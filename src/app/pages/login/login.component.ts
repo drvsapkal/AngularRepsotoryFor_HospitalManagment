@@ -12,32 +12,32 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-    loginObj : Login;
-    
-    constructor(private http: HttpClient, private router: Router){
-      this.loginObj = new Login();
-    }
+  loginObj: Login;
 
-    onLogin() {
-      this.http.post('http://localhost:8081/doctor/login', this.loginObj).subscribe((res:any)=>{
-        console.log(res);
-        if(res.result) {
-          alert("Login Success");
-          this.router.navigateByUrl("/dashboard")
-        } else {
-          alert(res.message)
-        }
-      }) 
+  constructor(private http: HttpClient, private router: Router) {
+    this.loginObj = new Login();
+  }
 
-    }
+  onLogin() {
+    this.http.post('http://localhost:8081/doctor/login', this.loginObj).subscribe((res: any) => {
+      console.log(res);
+      if (res.result) {
+        alert("Login Success");
+        this.router.navigateByUrl("/dashboard")
+      } else {
+        alert(res.message)
+      }
+    })
+
+  }
 }
 
 export class Login {
   userName: string;
   passWord: string;
- 
+
   constructor() {
-    this.userName='';
-    this.passWord='';
+    this.userName = '';
+    this.passWord = '';
   }
 }
