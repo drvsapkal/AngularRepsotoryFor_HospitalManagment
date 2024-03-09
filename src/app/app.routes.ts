@@ -25,5 +25,5 @@ export const routes: Routes = [
             component: DashboardComponent
         }]
     },
-   
+
 ];
