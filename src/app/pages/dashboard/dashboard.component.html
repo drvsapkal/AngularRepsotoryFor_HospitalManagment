@@ -334,12 +334,20 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Date</th>
                                     <th scope="col">Mobile Number</th>
-                                    <th scope="col">Bill</th>
+                                    <th scope="col">Address</th>
                                     <th scope="col">Meeting</th>
                                     <th></th>
                                 </tr>
                             </thead>
-                              <!--Dummy Data -->
+                            <tbody>
+                                <tr *ngFor="let patient of Patients">
+                                    <td>{{ patient.firsName }}</td>
+                                    <td>{{ patient.date }}</td>
+                                    <td>{{ patient.mobileNumber }}</td>
+                                    <td>{{ patient.city }}</td>
+                                    <td>{{ patient.emailId }}</td>
+                                </tr>
+                              <!--Dummy Data 
                             <tbody>
                                 
                                 <tr>
@@ -481,7 +489,7 @@
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </td>
-                                </tr>
+                                </tr>-->
                             </tbody>
                         </table>
                     </div>
