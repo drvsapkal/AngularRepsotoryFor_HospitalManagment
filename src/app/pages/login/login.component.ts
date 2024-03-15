@@ -21,8 +21,9 @@ export class LoginComponent {
   onLogin() {
     this.http.post('http://localhost:8081/doctor/login', this.loginObj).subscribe((res: any) => {
       console.log(res);
-      if (res.result) {
+      if (res !=null ){ 
         alert("Login Success");
+        localStorage.setItem('loggedInDoctorId', JSON.stringify(res));
         this.router.navigateByUrl("/dashboard")
       } else {
         alert(res.message)
