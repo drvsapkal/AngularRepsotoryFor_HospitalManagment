@@ -7,8 +7,8 @@
             <img
               src="https://banner2.cleanpng.com/20191115/ul/transparent-patient-icon-insurance-icon-5dcf20beb7d223.7888572715738554227529.jpg"
               class="rounded" alt="...">
-            <h5 class="card-title">Name of Patient</h5>
-            <p class="card-text">Mobile Number</p>
+            <h5 class="card-title">{{Patients.firsName}} {{Patients.lastName}}</h5>
+            <p class="card-text">{{Patients.mobileNumber}}</p>
 
             <a href="#" class="btn btn-primary">Preview Patient</a>
           </div>
@@ -19,24 +19,29 @@
           <div class="card-body">
             <mat-form-field>
               <mat-label>Tablet Name</mat-label>
-              <input matInput value="Medicine Name" #message>
+              <input matInput value="Medicine Name" #message [(ngModel)] = "drugObj.tabletName" name="tabletName">
             </mat-form-field>
 
             <mat-form-field>
               <mat-label>Days</mat-label>
-              <input matInput value="Days" #action>
+              <input matInput value="Days" #action [(ngModel)] = "drugObj.days" name="days">
             </mat-form-field>
 
             <mat-form-field>
               <mat-label>Mg</mat-label>
-              <input matInput value="Mg" #action>
+              <input matInput value="Mg" #action [(ngModel)] = "drugObj.mg" name="mg">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Quantity</mat-label>
+              <input matInput value="Quantity" #action [(ngModel)] = "drugObj.quantity" name="quantity">
             </mat-form-field>
 
             <mat-form-field>
               <mat-label>Comments</mat-label>
-              <input matInput value="Comments" #action>
+              <input matInput value="Comments" #action [(ngModel)] = "drugObj.comments" name="comments">
             </mat-form-field>
-
+            <br>
             <button class="btn btn-primary" (click)="addDrugs()">Add Drugs</button>
           </div>
         </div>
