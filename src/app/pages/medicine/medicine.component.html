@@ -1,44 +1,46 @@
 <div class="card">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-sm-5">
-              <div class="card">
-                <div class="card-body ">
-                    <img src="https://banner2.cleanpng.com/20191115/ul/transparent-patient-icon-insurance-icon-5dcf20beb7d223.7888572715738554227529.jpg" class="rounded" alt="...">
-                  <h5 class="card-title">Name of Patient</h5>
-                  <p class="card-text">Mobile Number</p>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="card">
+          <div class="card-body ">
+            <img
+              src="https://banner2.cleanpng.com/20191115/ul/transparent-patient-icon-insurance-icon-5dcf20beb7d223.7888572715738554227529.jpg"
+              class="rounded" alt="...">
+            <h5 class="card-title">Name of Patient</h5>
+            <p class="card-text">Mobile Number</p>
 
-                  <a href="#" class="btn btn-primary">Preview Patient</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-7">
-              <div class="card">
-                <div class="card-body">
-                    <mat-form-field>
-                        <mat-label>Tablet Name</mat-label>
-                        <input matInput value="Medicine Name" #message>
-                      </mat-form-field>
-                      
-                      <mat-form-field>
-                        <mat-label>Days</mat-label>
-                        <input matInput value="Days" #action>
-                      </mat-form-field>
-
-                      <mat-form-field>
-                        <mat-label>Mg</mat-label>
-                        <input matInput value="Mg" #action>
-                      </mat-form-field>
-                    
-                      <mat-form-field>
-                        <mat-label>Comments</mat-label>
-                        <input matInput value="Comments" #action>
-                      </mat-form-field>
-
-                      <button class="btn btn-primary" (click)="addDrugs()">Add Drugs</button>
-                </div>
-              </div>
-            </div>
+            <a href="#" class="btn btn-primary">Preview Patient</a>
           </div>
+        </div>
+      </div>
+      <div class="col-sm-7">
+        <div class="card">
+          <div class="card-body">
+            <mat-form-field>
+              <mat-label>Tablet Name</mat-label>
+              <input matInput value="Medicine Name" #message>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Days</mat-label>
+              <input matInput value="Days" #action>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Mg</mat-label>
+              <input matInput value="Mg" #action>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Comments</mat-label>
+              <input matInput value="Comments" #action>
+            </mat-form-field>
+
+            <button class="btn btn-primary" (click)="addDrugs()">Add Drugs</button>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

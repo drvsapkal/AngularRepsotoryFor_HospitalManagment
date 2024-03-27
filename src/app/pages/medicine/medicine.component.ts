@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-medicine',
   standalone: true,
-  imports: [ HttpClientModule, MatFormFieldModule, MatInputModule, MatButtonModule],
+  imports: [HttpClientModule, MatFormFieldModule, MatInputModule, MatButtonModule],
   templateUrl: './medicine.component.html',
   styleUrl: './medicine.component.css'
 })
@@ -18,7 +18,7 @@ export class MedicineComponent implements OnInit {
 
   patientId: number | undefined;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
     // Retrieve the patient ID from the route parameters
@@ -30,15 +30,15 @@ export class MedicineComponent implements OnInit {
 
       this.getParticularPatientDetails();
     });
-   
+
   }
- 
-  
+
+
   getParticularPatientDetails(): void {
     const url = 'http://localhost:8081/patient/details/this.patientId';
     this.http.get<any[]>(url).subscribe((data: any[]) => {
       this.Patients = data;
     });
   }
-  addDrugs(){}
+  addDrugs() { }
 }
