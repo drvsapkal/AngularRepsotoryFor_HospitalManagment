@@ -1,0 +1,11 @@
+.rounded {
+    border-radius: 10rem !important;
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 10%;
+    border: dotted;
+}
+
+mat-form-field {
+    margin-right: 12px;
+  }

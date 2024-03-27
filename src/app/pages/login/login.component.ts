@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
 export class LoginComponent {
 
   loginObj: Login;
@@ -29,10 +30,9 @@ export class LoginComponent {
         alert(res.message)
       }
     })
-
   }
 
-  doRegistration(){
+  doRegistration() {
     this.http.post('http://localhost:8081/doctor/register', this.loginObj).subscribe((res: any) => {
       console.log(res);
       if (res.result) {

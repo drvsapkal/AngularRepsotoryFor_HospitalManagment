@@ -3,6 +3,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { MedicineComponent } from './pages/medicine/medicine.component';
+import { ReportsComponent } from './pages/reports/reports.component';
 
 export const routes: Routes = [
 
@@ -23,7 +25,14 @@ export const routes: Routes = [
         children: [{
             path: 'dashboard',
             component: DashboardComponent
-        }]
+        },{
+            path: 'medicine/:patientId',
+            component: MedicineComponent,
+        },
+        {
+            path: 'reports',
+            component: ReportsComponent,
+        },]
     },
 
 ];

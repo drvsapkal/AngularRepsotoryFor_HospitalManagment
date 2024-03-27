@@ -336,7 +336,7 @@
                                     <th scope="col">Mobile Number</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">Meeting</th>
-                                    <th></th>
+                                    <th scope="col">Add</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -346,6 +346,14 @@
                                     <td>{{ patient.mobileNumber }}</td>
                                     <td>{{ patient.city }}</td>
                                     <td>{{ patient.emailId }}</td>
+                                    <td>
+                                        <a [routerLink]="['/medicine',patient.id ]">
+                                            <button type="button" class="btn btn-outline-primary" >Medicines</button>
+                                        </a>
+                                        <a routerLink="/reports">
+                                        <button type="button" class="btn btn-outline-success" >Tests</button>
+                                        </a>
+                                    </td>
                                 </tr>
                               <!--Dummy Data 
                             <tbody>
