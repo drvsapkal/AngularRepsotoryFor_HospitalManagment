@@ -4,32 +4,38 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-medicine',
   standalone: true,
-  imports: [HttpClientModule, MatFormFieldModule, MatInputModule, MatButtonModule],
+  imports: [ FormsModule, HttpClientModule, MatFormFieldModule, MatInputModule, MatButtonModule],
   templateUrl: './medicine.component.html',
   styleUrl: './medicine.component.css'
 })
 
 export class MedicineComponent implements OnInit {
 
-  Patients: any[] = [];
+  drugObj: Drug;
+
+  Patients: any;
 
   patientId: number | undefined;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
+    this.drugObj = new Drug();
+  }
 
   ngOnInit(): void {
     // Retrieve the patient ID from the route parameters
     this.route.params.subscribe(params => {
       this.patientId = +params['patientId']; // '+' is used to convert string to number
       // Now you can use this.patientId to fetch patient details or perform any other operation
-      console.log(this.patientId); 
+      console.log(this.patientId);
       console.log('Request URL:', `http://localhost:8081/patient/details/${this.patientId}`); // Log the constructed URL 
 
       this.getParticularPatientDetails();
+      this.drugObj.patient.id = this.patientId ;
     });
 
   }
@@ -43,6 +49,34 @@ export class MedicineComponent implements OnInit {
     });
   }
 
-  addDrugs() { }
+  addDrugs() {
+    this.http.post('http://localhost:8081/drug/addPatientDrug', this.drugObj).subscribe((res: any) => {
+      console.log(res);
+      if (res.result) {
+        alert("Data Saved SuccessFully");
+      } else {
+        alert("Data Not Saved")
+      }
+    })
+  }
+
+}
+
+export class Drug {
+  tabletName: string;
+  days: number;
+  mg: number;
+  quantity: number;
+  comments: string;
+  patient: { id: number };
+
+  constructor() {
+    this.tabletName = '';
+    this.days = 0;
+    this.mg = 0;
+    this.quantity = 0;
+    this.comments = '';
+    this.patient = { id: 0 };
+  }
 
 }

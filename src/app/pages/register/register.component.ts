@@ -12,24 +12,22 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
 
-  patientobj : patient
+  patientobj: patient
 
-  constructor(private http:HttpClient, private router: Router){
-   debugger;
+  constructor(private http: HttpClient, private router: Router) {
+    debugger;
     this.patientobj = new patient();
-    
+
     const doctorData = localStorage.getItem('loggedInDoctorId');
     console.log(doctorData);
-    if(doctorData != null)
-    {
+    if (doctorData != null) {
       const parseObj = JSON.parse(doctorData)
       // this.patientobj.doctor_id = parseInt(parseObj.id);
-      this.patientobj.doctor.id =   parseObj.id ;
+      this.patientobj.doctor.id = parseObj.id;
     }
-
   }
 
-  bookAppointment(){
+  bookAppointment() {
     const patientData = {
       ...this.patientobj,
       doctor: { id: this.patientobj.doctor.id }
@@ -56,13 +54,13 @@ export class patient {
   mobileNumber: number;
   doctor: { id: number };
 
-  constructor(){
+  constructor() {
     this.firsName = '';
     this.emailId = '';
     this.date = new Date;
     this.city = '';
     this.mobileNumber = 0;
-    this.doctor = { id: 0 }; 
+    this.doctor = { id: 0 };
   }
 
 }
