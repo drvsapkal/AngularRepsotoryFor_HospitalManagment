@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './medicine.component.html',
   styleUrl: './medicine.component.css'
 })
+
 export class MedicineComponent implements OnInit {
 
   Patients: any[] = [];
@@ -25,8 +26,8 @@ export class MedicineComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.patientId = +params['patientId']; // '+' is used to convert string to number
       // Now you can use this.patientId to fetch patient details or perform any other operation
-      console.log(this.patientId);
-      console.log('Request URL:', `http://localhost:8081/patient/details/${this.patientId}`); // Log the constructed URL
+      console.log(this.patientId); 
+      console.log('Request URL:', `http://localhost:8081/patient/details/${this.patientId}`); // Log the constructed URL 
 
       this.getParticularPatientDetails();
     });
@@ -35,10 +36,13 @@ export class MedicineComponent implements OnInit {
 
 
   getParticularPatientDetails(): void {
-    const url = 'http://localhost:8081/patient/details/this.patientId';
+    const url = `http://localhost:8081/patient/details/${this.patientId}`;  //(` `) quotes VVIMP
     this.http.get<any[]>(url).subscribe((data: any[]) => {
+      console.log(data);
       this.Patients = data;
     });
   }
+
   addDrugs() { }
+
 }
